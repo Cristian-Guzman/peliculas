@@ -35,6 +35,7 @@ const casillaDireccion = document.querySelector('.direccion');
 const casillaObservacion = document.querySelector('.observacion');
 const submit = document.querySelector('.form');
 
+
 // Añadiendo la opción de que la información del localStorage se guarde al enviar el documento.
 submit.addEventListener('submit', e =>{ 
     let signUp = {
@@ -44,12 +45,21 @@ submit.addEventListener('submit', e =>{
         direccion : casillaDireccion.value,
         observacion : casillaObservacion.value
     }
-    localStorage.setItem('signUp', JSON.stringify(signUp));
+    if (!isNaN(signUp.telefono)) {
+        localStorage.setItem('signUp', JSON.stringify(signUp));
+    } else {
+        alert("Diligencia tu número correctamente.");
+        localStorage.removeItem('signUp');
+    }
     e.preventDefault();
     dispData();
 })
 
 const dispData = () =>{
-    let res = JSON.parse(localStorage.getItem('signUp'));
-    console.table(res);
+    if (localStorage.getItem('signUp')) {
+        let res = JSON.parse(localStorage.getItem('signUp'));
+        console.table(res);
+    }
 }
+dispData();
+

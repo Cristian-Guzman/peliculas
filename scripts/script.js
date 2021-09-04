@@ -1,13 +1,29 @@
-const infor = [
-    {imagen : "images/captain.jpg", informacion : "Capitana marvel"},
-    {imagen : "images/daylight.jpg", informacion : "Daylight's end"},
-    {imagen : "images/drstrange.jpg", informacion : "Doctor Strange"},
-    {imagen : "images/logan.jpg", informacion : "Logan"},
-    {imagen : "images/chris.jpg", informacion : "Mision de Rescate"},
-    {imagen : "images/shang.jpg", informacion : "Shang-Chi"},
-    {imagen : "images/tomorrowwar.jpg", informacion : "The tomorrow war"}
+const info = [
+    {imagen : "images/captain.jpg", informacion : "capitana"},
+    {imagen : "images/daylight.jpg", informacion : "daylight"},
+    {imagen : "images/drstrange.jpg", informacion : "doctor"},
+    {imagen : "images/logan.jpg", informacion : "logan"},
+    {imagen : "images/chris.jpg", informacion : "mision"},
+    {imagen : "images/shang.jpg", informacion : "shang"},
+    {imagen : "images/tomorrowwar.jpg", informacion : "war"}
 ]
 
+// Desestructurando el nombre de cada película con su respectiva variable.
+let movies = [];
+info.forEach(e => {
+    movies.push(e.informacion);
+})
+let [capitana, daylight, doctor, logan, mision, shang, war] = movies;
+
+let capitanaM = document.querySelector('capitana');
+if (capitanaM) {
+    capitanaM.addEventListener('click', a => {
+        alert(a);
+    })
+} else {
+    alert("don't work");
+}
+// Usar LocalStorage para guardar el valor de la película que se presione.
 
 let indice = 1;
 muestraSlides(indice);
@@ -27,7 +43,7 @@ const fragment = document.createDocumentFragment();
 const barras = document.querySelector('.barras');
 const material = document.querySelector('.nombrePelicula');
 
-infor.forEach(e => {
+info.forEach(e => {
     //Añadiendo la imagen de las peliculas
     const span = document.createElement('SPAN');
     const image = document.createElement('IMG');
@@ -60,7 +76,8 @@ infor.forEach(e => {
 
     botones.classList.add('botones');
     
-    link.setAttribute("href", "#");
+    link.setAttribute("href", "productos.html");
+    link.classList.add(e.informacion);
     link.addEventListener("mouseover", (e)=> {
         if (e) {
             link.classList.add('link')
