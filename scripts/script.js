@@ -100,12 +100,17 @@ function muestraSlides(n){
 luego de dar click en cualquier pelicula, este eliminará los demás valores 
 que se hayan guardado para así sólo tener un valor en el localStorage.
 */
-let capitanaE = document.querySelector('.capitana').addEventListener('click', e => {localStorage.clear();localStorage.setItem("capitana", "capitana");});
-let daylightE = document.querySelector('.daylight').addEventListener('click', e => {localStorage.clear();localStorage.setItem("daylight", "daylight");});
-let doctorE = document.querySelector('.doctor').addEventListener('click', e => {localStorage.clear();localStorage.setItem("doctor", "doctor");});
-let loganE = document.querySelector('.logan').addEventListener('click', e => {localStorage.clear();localStorage.setItem("logan", "logan");});
-let misionE = document.querySelector('.mision').addEventListener('click', e => {localStorage.clear();localStorage.setItem("mision", "mision");});
-let shangE = document.querySelector('.shang').addEventListener('click', e => {localStorage.clear();localStorage.setItem("shang", "shang");});
-let warE = document.querySelector('.war').addEventListener('click', e => {localStorage.clear();localStorage.setItem("war", "war");});
+let capitanaE = document.querySelector('.capitana').addEventListener('click', e => {borrarStorage('capitana')});
+let daylightE = document.querySelector('.daylight').addEventListener('click', e => {borrarStorage('daylight')});
+let doctorE = document.querySelector('.doctor').addEventListener('click', e => {borrarStorage('doctor')});
+let loganE = document.querySelector('.logan').addEventListener('click', e => {borrarStorage('logan')});
+let misionE = document.querySelector('.mision').addEventListener('click', e => {borrarStorage('mision')});
+let shangE = document.querySelector('.shang').addEventListener('click', e => {borrarStorage('shang')});
+let warE = document.querySelector('.war').addEventListener('click', e => {borrarStorage('war')});
 
-
+const borrarStorage = valor => {
+    for (const i of info) {
+        localStorage.removeItem(i.informacion);
+    }
+    localStorage.setItem(valor, valor);
+}
