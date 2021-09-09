@@ -15,9 +15,6 @@ function avanzaSlide(n){
     muestraSlides( indice+=n );
 }
 
-function posicionSlide(n){
-    muestraSlides(indice=n);
-}
 setInterval(function tiempo(){
     muestraSlides(indice+=1)
 },4000);

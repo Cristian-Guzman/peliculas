@@ -52,14 +52,6 @@ submit.addEventListener('submit', e =>{
         localStorage.removeItem('signUp');
     }
     e.preventDefault();
-    dispData();
 })
 
-const dispData = () =>{
-    if (localStorage.getItem('signUp')) {
-        let res = JSON.parse(localStorage.getItem('signUp'));
-        console.table(res);
-    }
-}
-dispData();
 
